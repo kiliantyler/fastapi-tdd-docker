@@ -2,6 +2,10 @@ name: Continuous Integration and Delivery
 
 on: [push]
 
+permissions:
+  contents: write
+  packages: write
+
 env:
   IMAGE: docker.pkg.github.com/$(echo $GITHUB_REPOSITORY | tr '[A-Z]' '[a-z]')/summarizer
 
