@@ -18,6 +18,8 @@ dependencies = [
     "flake8==5.0.4",
     "black==22.10.0",
     "isort==5.10.1",
+    "pytest-xdist==3.0.2",
+    "newspaper3k==0.2.8",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -37,6 +39,7 @@ docker_login = "op run --no-masking -- docker login ghcr.io -u kiliantyler -p ${
 docker_push = "docker push ghcr.io/kiliantyler/fastapi-tdd-docker/summarizer:latest"
 compose = "docker-compose up -d --build"
 test = "docker-compose exec web python -m pytest"
+utest = "docker-compose exec web pytest -k 'unit' -n auto"
 coverage = "docker-compose exec web python -m pytest --cov='.'"
 black = "docker-compose exec web black ."
 isort = "docker-compose exec web isort ."
